@@ -1,0 +1,7 @@
+<ul id="sessions" *ngIf="sessions$ | async as sessions">
+  <li *ngFor="let session of sessions">
+    {{session.title}} at {{session.venue}}
+  </li>
+</ul>
+<p id="sessions" *ngIf="!(sessions$ | async)">No sessions found</p>
+

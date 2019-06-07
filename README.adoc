@@ -1,0 +1,3 @@
+# Insert a session
+
+curl -i -X POST -H "Content-Type:application/json" -d '{  "title" : "Test", "venue" : "venue", "date": 1559942796, "address": "Address" }' http://localhost:8080/api/sessions
