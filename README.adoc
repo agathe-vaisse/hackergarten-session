@@ -1,3 +1,33 @@
-# Insert a session
+= Hackergarten session management
 
-curl -i -X POST -H "Content-Type:application/json" -d '{  "title" : "Test", "venue" : "venue", "date": 1559942796, "address": "Address" }' http://localhost:8080/api/sessions
+== Getting started
+
+=== Backend
+
+Start the backend by doing so:
+
+```shell
+./mvnw spring-boot:run
+```
+
+If you want to insert some data to the local in-memory datastore,
+you can manually execute the following HTTP requests:
+
+```shell
+# insert a venue
+venue_json="{\"name\": \"Pivotal France\", \"address\": \"33 rue La Fayette 75009 Paris\"}"
+venue_uri=$(curl --request POST --header "Content-Type:application/json" --data ${venue_json} http://localhost:8080/api/venues | jq --raw-output '._links.self.href')
+
+# insert a session
+now=$(date +%s000)
+session_json="{\"title\": \"Hackergarten Paris 42\", \"date\": ${now}, \"venue\": \"${venue_uri}\"}"
+curl --request POST --header "Content-Type:application/json" --data ${session_json} http://localhost:8080/api/sessions
+```
+
+=== Frontend
+
+```shell
+cd web
+npm i
+ng serve
+```

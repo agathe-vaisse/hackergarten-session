@@ -25,9 +25,12 @@ describe('SessionService', () => {
   it('should retrieve sessions from the API', (done: DoneFn) => {
     const session = {
       "title": "Session #1",
-      "date": 1559935851,
-      "venue": "Somewhere",
-      "address": "Over the rainbow"
+      "date": "2019-06-11T22:35:39.000+0000",
+      "venue": {
+        "name": "Somewhere",
+        "address": "Over the rainbow"
+      },
+
     };
     const apiResult = {
       "_embedded": {

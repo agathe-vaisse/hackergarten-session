@@ -1,7 +1,7 @@
 <ng-container *ngIf="(sessions$ | async) as sessions; else noSessions">
   <ul id="sessions" *ngIf="sessions.length > 0 else noSessions">
     <li *ngFor="let session of sessions">
-      {{session.title}} at {{session.venue}}
+      {{session.title}} at {{session.venue.name}}
     </li>
   </ul>
 </ng-container>

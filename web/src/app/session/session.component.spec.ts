@@ -4,6 +4,7 @@ import {SessionComponent} from './session.component';
 import {SessionService} from "./session.service";
 import {Subject} from "rxjs";
 import {Session} from "./session";
+import {Venue} from "../venue/venue";
 
 describe('SessionComponent =>', () => {
   let component: SessionComponent;
@@ -39,9 +40,10 @@ describe('SessionComponent =>', () => {
   });
 
   describe('when there are sessions =>', () => {
+    const venue = <Venue>{name: 'Pivotal', address: '75009 Paris'};
     const sessions = [
-      <Session>{title: 'Session #1', date: 1559935851, venue: 'Pivotal', address: '75009 Paris'},
-      <Session>{title: 'Session #2', date: 1559935852, venue: 'Pivotal', address: '75009 Paris'}
+      <Session>{title: 'Session #1', date: "2019-06-11T22:35:39.000+0000", venue: venue},
+      <Session>{title: 'Session #2', date: "2019-09-11T22:35:39.000+0000", venue: venue}
     ];
 
     beforeEach(() => {

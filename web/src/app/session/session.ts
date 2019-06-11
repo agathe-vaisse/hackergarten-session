@@ -1,6 +1,7 @@
+import {Venue} from "../venue/venue";
+
 export interface Session {
   title: string;
-  date: number;
-  venue: string;
-  address: string;
+  date: string;
+  venue: Venue;
 }

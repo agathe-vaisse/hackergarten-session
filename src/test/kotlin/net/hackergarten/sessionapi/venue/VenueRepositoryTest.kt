@@ -1,6 +1,5 @@
-package net.hackergarten.sessionapi.session
+package net.hackergarten.sessionapi.venue
 
-import net.hackergarten.sessionapi.venue.venue
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -8,37 +7,35 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest
 import org.springframework.test.context.TestPropertySource
 import org.springframework.test.context.junit4.SpringRunner
-import java.util.Date
 import javax.persistence.EntityManager
 
 @DataJpaTest(showSql = false)
 @RunWith(SpringRunner::class)
 @TestPropertySource(locations = ["classpath:test.properties"])
-class SessionRepositoryTest {
+class VenueRepositoryTest {
 
     @Autowired
-    lateinit var sessionRepository: SessionRepository
+    lateinit var venueRepository: VenueRepository
 
     @Autowired
     lateinit var entityManager: EntityManager
 
     @Test
-    fun `find empty sessions list`() {
-        val sessions = sessionRepository.findAll()
+    fun `find empty venue list`() {
+        val sessions = venueRepository.findAll()
 
         assertThat(sessions).isEmpty()
     }
 
     @Test
-    fun `find preregistered session`() {
+    fun `find preregistered venue`() {
         val savedVenue = venue(name = "Pivotal France", address = "33 rue Lafayette 75009 Paris")
-        val savedSession = session(title = "Session 1", date = Date(), venue = savedVenue)
-        entityManager.persist(savedSession)
+        entityManager.persist(savedVenue)
 
-        val maybeSession = sessionRepository.findById(savedSession.id!!)
+        val maybeSession = venueRepository.findById(savedVenue.id!!)
 
         assertThat(maybeSession).isPresent
-        assertThat(maybeSession.get()).isEqualToComparingFieldByField(savedSession)
+        assertThat(maybeSession.get()).isEqualToComparingFieldByField(savedVenue)
     }
 
 }
