@@ -8,6 +8,6 @@ export class SessionsPage {
 
 
   getDefaultWelcomeMessage() {
-    return element(by.css('app-root #sessions')).getText();
+    return element(by.css('app-root #zero-session')).getText();
   }
 }

@@ -5,7 +5,7 @@ import {SessionService} from "./session.service";
 import {Subject} from "rxjs";
 import {Session} from "./session";
 
-describe('SessionComponent', () => {
+describe('SessionComponent =>', () => {
   let component: SessionComponent;
   let fixture: ComponentFixture<SessionComponent>;
   let dom: any;
@@ -31,14 +31,14 @@ describe('SessionComponent', () => {
     fixture.detectChanges();
   });
 
-  describe('when there are no sessions', () => {
+  describe('when there are no sessions =>', () => {
 
     it('displays a message saying so', () => {
-      expect(dom.querySelector('#sessions').textContent).toBe('No sessions found')
+      expect(dom.querySelector('#zero-session').textContent).toBe('No sessions found')
     });
   });
 
-  describe('when there are sessions', () => {
+  describe('when there are sessions =>', () => {
     const sessions = [
       <Session>{title: 'Session #1', date: 1559935851, venue: 'Pivotal', address: '75009 Paris'},
       <Session>{title: 'Session #2', date: 1559935852, venue: 'Pivotal', address: '75009 Paris'}
