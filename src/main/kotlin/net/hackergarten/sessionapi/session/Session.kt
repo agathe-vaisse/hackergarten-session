@@ -11,15 +11,11 @@ import javax.persistence.Temporal
 import javax.persistence.TemporalType
 
 @Entity
-class Session() {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    var id: Long? = null
-    var title: String = ""
-    @Temporal(TemporalType.TIMESTAMP)
-    var date: Date = Date(0)
-    @ManyToOne
-    var venue: Venue = Venue()
-
-}
+class Session(@Id
+              @GeneratedValue(strategy = GenerationType.IDENTITY)
+              var id: Long? = null,
+              var title: String,
+              @Temporal(TemporalType.TIMESTAMP)
+              var date: Date,
+              @ManyToOne
+              var venue: Venue)

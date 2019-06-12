@@ -6,11 +6,8 @@ import javax.persistence.GenerationType
 import javax.persistence.Id
 
 @Entity
-class Venue() {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    var id: Long? = null
-    var name: String = ""
-    var address: String = ""
-}
+class Venue(@Id
+            @GeneratedValue(strategy = GenerationType.IDENTITY)
+            var id: Long? = null,
+            var name: String,
+            var address: String)

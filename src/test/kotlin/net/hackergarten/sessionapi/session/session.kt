@@ -5,9 +5,5 @@ import java.util.*
 
 
 fun session(title: String, date: Date, venue: Venue): Session {
-    val session = Session()
-    session.title = title
-    session.date = date
-    session.venue = venue
-    return session
+    return Session(title = title, date = date, venue = venue)
 }
