@@ -5,5 +5,5 @@ import java.util.*
 
 
 fun session(title: String, date: Date, venue: Venue): Session {
-    return Session(title = title, date = date, venue = venue)
+    return Session(title, date, venue)
 }
